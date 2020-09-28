@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <a class="nav-link" href="/">Home</a>
+  <form name="sentMessage" id="contactForm" enctype="multipart/form-data" novalidate action="/uploader" method="POST" >
+         <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label> file</label>
+              <input type="file" class="form-control" placeholder="file1" name ="file1" id="file1" required data-validation-required-message="Please enter your email address." >
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+    <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+  </form>
+  <h2><a href ="/addedit/0"><button type="button" class="btn btn-primary" onclick="/">add</button></a></h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Tittle</th>
+        <th>Conent</th>
+        <th>Date</th>
+        <th>EDit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    {% for post in query_result %}
+    <tbody>
+      <tr>
+        <td>{{post.Tittle}}</td>
+        <td>{{post.Conent}}</td>
+        <td>{{post.Date}}</td>
+        <td><a href ="/addedit/{{post.Sno}}"><button type="button" class="btn btn-primary">Edit</button></a></td>
+        <td><a href ="/delete/{{post.Sno}}"><button type="button" class="btn btn-primary">Delete</button></a></td>
+
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+
+</body>
+</html>

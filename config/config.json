@@ -1,0 +1,17 @@
+{
+  "param": {
+    "local_server":"True",
+    "local_uri": "mysql://root:@localhost/coding_thunder",
+    "prod_uri": "mysql://root:@localhost/coding_thunder",
+    "fb_url": "https://facebook.com/codingthunder",
+    "tw_url": "https://twitter.com/codingthunder",
+    "gh_url": "https://github.com",
+    "blog_name": "Coding Thunder",
+    "blog_subtittle": "I am learning programming",
+    "login_image":"login.svg",
+    "admin_user": "ajeeta",
+    "admin_password":"singh@12345",
+    "upload_file": "D:\\python\\Flask1\\static\\img",
+    "number_of_display":"2"
+  }
+}

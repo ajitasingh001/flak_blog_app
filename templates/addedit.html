@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{url_for('static',filename='img/contact-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Contact Me</h1>
+            <span class="subheading">Have questions? I have answers.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <a href ="/dashboard"><button type="button" class="btn btn-primary">Back to Dashboard</button></a>
+        <a href ="/logout"><button type="button" class="btn btn-primary">LOGOUT</button></a>
+        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+        <form name="sentMessage" id="contactForm"  novalidate action="/addedit/{% if post.Sno!=None %}{{post.Sno}}{% else %}0{% endif %}" method="POST">
+
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label> Tittle</label>
+              <input type="text" class="form-control" placeholder="Tittle" name ="Tittle" id="Tittle" required data-validation-required-message="Please enter your email address." value="{{post.Tittle}}">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Slug</label>
+              <input type="text" class="form-control" placeholder="slug" name ="slug" id="slug" required data-validation-required-message="Please enter your email address." value="{{post.slug}}">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Conent</label>
+              <input type="text" class="form-control" placeholder="Conent" name ="Conent" id="Conent" required data-validation-required-message="Please enter your email address." value="{{post.Conent}}">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Image</label>
+              <input type="text" class="form-control" placeholder="Image" name ="Image" id="Image" required data-validation-required-message="Please enter your email address."  value="{{post.Image}}">>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
